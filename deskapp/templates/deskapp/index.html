@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href="{% static 'deskapp/styles.css'%}">
+    <title>Desk2Trade</title>
+    
+</head>
+<body>
+    <h1>Desk2Trade!</h1>
+    <h3>Desks Disponibles</h3>
+    <table>
+        <thead>
+            <td><b>Modalidad</b></td>
+            <td><b>Precio</b></td>
+            <td><b>Temporalidad</b></td>
+        </thead>
+        {%for  desk in desks %} <!---se hace el recorrido en desks que fue la etiqueta en views que contiene el ctx de todos los objetos -->
+        <tr> <!---tr = table row-->
+            <td>{{ desk.Modalidad}}</td>
+            <td> ${{ desk.Precio}}</td>
+            <td>{{ desk.get_temporalidad_display}}</td>
+        
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
